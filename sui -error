@@ -1,0 +1,44 @@
+2022-11-02T09:25:33.998551Z  INFO ying_profiler::utils: Ying: total allocated memory and ratio to last new_allocated=195.48854541778564 ratio=8.774427270889282
+2022-11-02T09:25:33.998630Z  INFO ying_profiler::utils: Significant memory change registered, dumping profile: new = 195.48854541778564, old = 20
+2022-11-02T09:25:33.999296Z  INFO ying_profiler::utils: ---
+63072 profiled bytes allocated (1.00%) (6 allocations)
+  0 profiled bytes freed (0.00% of allocated) (0 frees)
+  Estimated 31536000 total bytes retained (15.38% of total) 
+Callback <hash = 0x3e99b87c06f084d7>
+  core::iter::traits::iterator::Iterator::for_each
+    > <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<T,I>>::spec_extend
+    > <alloc::vec::Vec<T> as alloc::vec::spec_from_iter_nested::SpecFromIterNested<T,I>>::from_iter
+    > <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter
+    > <alloc::vec::Vec<T> as core::iter::traits::collect::FromIterator<T>>::from_iter
+    > core::iter::traits::iterator::Iterator::collect
+    > sui_storage::mutex_table::MutexTable<K>::new_with_cleanup
+    > sui_storage::mutex_table::MutexTable<K>::new
+  sui_core::authority::authority_store::SuiDataStore<S>::open
+  sui_node::SuiNode::start::{{closure}}
+  <core::future::from_generator::GenFuture<T> as core::future::future::Future>::poll
+  tokio::park::thread::CachedParkThread::block_on::{{closure}}
+    > tokio::coop::with_budget::{{closure}}
+    > std::thread::local::LocalKey<T>::try_with
+    > std::thread::local::LocalKey<T>::with
+    > tokio::coop::with_budget
+    > tokio::coop::budget
+    > tokio::park::thread::CachedParkThread::block_on
+  tokio::runtime::enter::Enter::block_on
+    > tokio::runtime::scheduler::multi_thread::MultiThread::block_on
+    > tokio::runtime::Runtime::block_on
+  sui_node::main
+  core::ops::function::FnOnce::call_once
+    > std::sys_common::backtrace::__rust_begin_short_backtrace
+  std::rt::lang_start::{{closure}}
+  core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+    > std::panicking::try::do_call
+    > std::panicking::try
+    > std::panic::catch_unwind
+    > std::rt::lang_start_internal::{{closure}}
+    > std::panicking::try::do_call
+    > std::panicking::try
+    > std::panic::catch_unwind
+    > std::rt::lang_start_internal
+  main
+  __libc_start_main
+  _start
